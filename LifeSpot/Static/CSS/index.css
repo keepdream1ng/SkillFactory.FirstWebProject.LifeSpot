@@ -4,10 +4,15 @@
     box-sizing: border-box;
 }
 
+:root {
+  --sidebar-width: clamp(15ch, 10%, 25ch);
+}
+
+
 /* Простые селекторы*/
 body {
     font-family: "Helvetica 65 Medium", sans-serif;
-    padding-left: 11%;
+    padding-left: var(--sidebar-width);
     background-color: hsl(200, 30%, 80%);
     font-size: 1.1rem;
     min-height: 100%
@@ -23,6 +28,11 @@ button, input, textarea, select{
     padding-top: 1%;
 }
 
+.video-title{
+    border: 2px solid black;
+    margin-top: -5px;
+}
+
 .navbar {
     color: darkgray;
     padding-left: 15%;
@@ -32,6 +42,14 @@ button, input, textarea, select{
 .navbar p:hover{
     background-color: dimgray;
     color: aliceblue;
+}
+
+.navbar a{
+    color: lightgray;
+}
+
+.navbar a:visited{
+    color: gray;
 }
 
 /*Глобальные стили для хедеров на всём сайте*/
@@ -51,13 +69,17 @@ footer {
     bottom: 0;
     font-size: medium;
     color: dimgrey;
-    line-height: 85%;
+    line-height: 66%;
     padding: 1rem 1%;
+}
+
+footer p{
+    padding: 0.3em;
 }
 
 aside {
     min-height: 100%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
-    width: 10%;
+    width: var(--sidebar-width);
     position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
     z-index: 1; /* Сайд-бар будет поверх остальных элементов */
     top: 0; /* Сайдбар будет в самой верхней части страницы */
