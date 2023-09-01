@@ -1,8 +1,20 @@
-﻿/* Простые селекторы*/
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Простые селекторы*/
 body {
     font-family: "Helvetica 65 Medium", sans-serif;
     padding-left: 11%;
-    background-color: lightgray;
+    background-color: hsl(200, 30%, 80%);
+    font-size: 1.1rem;
+    min-height: 100%
+}
+
+button, input, textarea, select{
+    font: inherit;
 }
 
 .video-container {
@@ -24,7 +36,7 @@ body {
 
 /*Глобальные стили для хедеров на всём сайте*/
 header {
-   color: black;
+    color: black;
     padding-left: 1%;
     padding-top: 1.2%;
 }
@@ -35,13 +47,16 @@ header {
 
 footer {
     position: absolute;
+    margin-top: 2rem;
     bottom: 0;
     font-size: medium;
     color: dimgrey;
+    line-height: 85%;
+    padding: 1rem 1%;
 }
 
 aside {
-    height: 100%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
+    min-height: 100%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
     width: 10%;
     position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
     z-index: 1; /* Сайд-бар будет поверх остальных элементов */
