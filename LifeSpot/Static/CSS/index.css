@@ -63,6 +63,16 @@ header {
     color: darkslategrey;
 }
 
+input.search {
+    background-color: lightgray;
+    color: inherit;
+}
+
+input.search:focus {
+    background-color: whitesmoke;
+    color: black;
+}
+
 footer {
     position: absolute;
     margin-top: 2rem;
