@@ -1,10 +1,70 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>LifeSpot</title>
+   <meta charset="UTF-8">
+   <title>LifeSpot</title>
+<style>
+       /* Свойства стиля элемента. Подробнее о них в модуле по CSS */
+       .video-container{
+           display: inline-block;
+           padding-left: 1%;
+       }
+       .navbar{
+           color: darkgray;
+           padding-left: 15%;
+       }
+       header{
+           padding-left: 1%;
+       }
+       footer {
+           position: absolute;
+           bottom: 0;
+       }
+       aside{
+           height: 100%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
+           width: 10%;
+           position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
+           z-index: 1; /* Сайд-бар будет поверх остальных элементов */
+           top: 0; /* Сайдбар будет в самой верхней части страницы */
+           left: 0;
+           background-color: #111; /* Черный цвет фона (задан в виде кода) */
+           overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+           padding-top: 20px;
+       }
+ 
+       body{
+           padding-left: 11%;
+       }
+   </style>
 </head>
 <body>
-    <p>Приветствуем на LifeSpot!</p>
+    <header class="bordered">
+       <h1>LifeSpot — прямые трансляции с улиц</h1>
+       <p>Покажем, что происходит прямо сейчас</p>
+    </header>
+    <main class="bordered">
+        <aside>
+            <div class="navbar">
+                <ul>
+                    <li>Все трансляции</li>
+                    <li>О проекте</li>
+                </ul>
+            </div>
+        </aside>
+        <div class="video-container">
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/srlpC5tmhYs?si=DpZtQNtiJ3ZDstge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h3 class="video-title">Трансляция из Нью-йорка.</h3>
+        </div>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/8xvDwLqW2Aw?si=ITiW1uZv9SR3xUjz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+            <h3 class="video-title">Трансляция из Caнкт-Петербурга.</h3>
+        </div>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/nE8qkw9u7tQ?si=fbI1oW8qoDgaMi1j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h3 class="video-title">Трансляция из Лондона.</h3>
+        </div>
+    </main>
+
+    <footer>Разработка сайта - keepdream1ng.</footer>
 </body>
 </html>
