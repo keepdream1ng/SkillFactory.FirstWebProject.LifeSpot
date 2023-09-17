@@ -1,19 +1,40 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <title>LifeSpot</title>
-   <link href="../Static/CSS/index.css" rel="stylesheet">
-   <script src="../Static/JS/index.js" charset="utf-8"></script>
+    <meta charset="UTF-8">
+    <title>LifeSpot</title>
+    <link href="../Static/CSS/index.css" rel="stylesheet">
+    <script src="../Static/JS/index.js" charset="utf-8"></script>
 </head>
 <body>
     <header class="bordered" id="header-index">
          <h1>LifeSpot — прямые трансляции с улиц</h1>
          <p>Покажем, что происходит прямо сейчас</p>
-        <form class="search">
-            <label for="searchInput">Найти:</label>
-            <input id="searchInput" class="search" type="text" name="searchInput" value="" placeholder=" интересное видео" />
-        </form>
+         <form class="search">
+             <label for="searchInput">Найти:</label>
+             <input
+                    id="searchInput"
+                    class="search"
+                    type="text"
+                    name="searchInput"
+                    value=""
+                    oninput="
+                    let userInput = document.getElementById('searchInput').value.toLowerCase();
+                    let videoContainers = document.getElementsByClassName('video-container');
+                    for (let i = 0; i < videoContainers.length; i++){
+                            let title = videoContainers[i].getElementsByClassName('video-title')[0];
+                            if (title.innerText.toLowerCase().includes(userInput)) {
+                               videoContainers[i].style.display = 'inline-block';
+                            }
+                            else {
+                               videoContainers[i].style.display = 'none';
+                            }
+                            console.log(title.innerText);
+                        }
+                    "
+                    placeholder=" интересyющий город"
+                    />
+         </form>
     </header>
     <main class="bordered">
         <!--SIDEBAR--> 
@@ -23,7 +44,7 @@
         </div>
         <div class="video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/8xvDwLqW2Aw?si=ITiW1uZv9SR3xUjz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
-            <h3 class="video-title">Трансляция из Caнкт-Петербурга.</h3>
+            <h3 class="video-title">Трансляция из Санкт-Петербурга.</h3>
         </div>
         <div class="video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/nE8qkw9u7tQ?si=fbI1oW8qoDgaMi1j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
