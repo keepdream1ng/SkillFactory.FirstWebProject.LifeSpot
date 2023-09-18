@@ -1,4 +1,4 @@
-﻿function onSiteOpening() {
+﻿const onSiteOpening = function() {
     let sessionData = new Map();
     sessionData.set("UserAgent", window.navigator.userAgent);
     let age;
@@ -18,7 +18,7 @@
     }
 }
 
-function filterVideoContainers() {
+const filterVideoContainers = function() {
     let userInput = document.getElementById('searchInput').value.toLowerCase();
     let videoContainers = document.getElementsByClassName('video-container');
     for (let i = 0; i < videoContainers.length; i++) {
