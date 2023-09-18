@@ -15,3 +15,18 @@ alert(`Приветствуем на LiveSpot!\n Текущее время: ${ti
 for (let prop of sessionData) {
     console.log(prop);
 }
+
+function filterVideoContainers() {
+    let userInput = document.getElementById('searchInput').value.toLowerCase();
+    let videoContainers = document.getElementsByClassName('video-container');
+    for (let i = 0; i < videoContainers.length; i++) {
+        let title = videoContainers[i].getElementsByClassName('video-title')[0];
+        if (title.innerText.toLowerCase().includes(userInput)) {
+            videoContainers[i].style.display = 'inline-block';
+        }
+        else {
+            videoContainers[i].style.display = 'none';
+        }
+        console.log(title.innerText);
+    }
+}
