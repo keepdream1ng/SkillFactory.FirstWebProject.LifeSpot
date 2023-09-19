@@ -6,7 +6,8 @@
     <link href="../Static/CSS/index.css" rel="stylesheet">
     <script src="../Static/JS/index.js" charset="utf-8"></script>
     <script>
-        //onSiteOpening();
+        //let sessionData = HandleSession();
+        //logSession(sessionData);
     </script>
 </head>
 <body>
@@ -21,7 +22,9 @@
                     type="text"
                     name="searchInput"
                     value=""
-                    oninput="filterVideoContainers()"
+                    oninput="
+                        filterVideoContainers(getSearchInput);
+                    "
                     placeholder=" интересyющий город"
                     />
          </form>
