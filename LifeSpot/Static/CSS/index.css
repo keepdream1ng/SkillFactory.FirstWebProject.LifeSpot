@@ -99,3 +99,21 @@ aside {
     padding-top: 2%;
     font-size: large;
 }
+section{
+    padding: 1rem 1%;
+}
+
+.comment{
+    margin-top: 2rem;
+}
+
+#commentForm *{
+    display:block;
+    text-align:left;
+    width: 100%;
+    visibility:collapse;
+}
+
+#commentForm #newCommentButton{
+    visibility:visible;
+}

@@ -6,7 +6,7 @@
     <link href="../Static/CSS/index.css" rel="stylesheet">
     <script src="../Static/JS/index.js" charset="utf-8"></script>
     <script>
-        //checkAge();
+        checkAge();
         handleSession();
         logSession();
         delayedCallToSubscribe();
@@ -24,9 +24,7 @@
                     type="text"
                     name="searchInput"
                     value=""
-                    oninput="
-                        filterVideoContainers();
-                    "
+                    oninput="filterVideoContainers();"
                     placeholder=" интересyющий город"
                     />
          </form>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LifeSpot</title>
+    <link href="../Static/CSS/index.css" rel="stylesheet">
+    <script src="../Static/JS/about.js" charset="utf-8" defer></script>
+    <script>
+    </script>
+</head>
+
+<body>
+    <header id="header-index">
+        <h1>LifeSpot - страница о проекте.</h1>
+    </header>
+    <main>
+    <!--SIDEBAR-->
+        <section>
+            <p>
+                Этот сайт на самом деле - учебный проект в веб разработке Skillfactory.
+                Выразите любые ваши чувства в комментариях ниже!
+            </p>
+        </section>
+        <section
+                 id="commentSection"
+                 >
+            <form
+                  action=""
+                  id="commentForm"
+                  onsubmit="submitComment(event)"
+                  >
+                <button
+                        id="newCommentButton"
+                        type="button"
+                        onclick="showCommentForm()"
+                        >
+                    Оставить отзыв.
+                </button>
+                <label
+                       for="commenterNameInput"
+                       >
+                    Ваше имя:
+                </label>
+                <input
+                       type="text"
+                       id="commenterNameInput"
+                       required
+                       />
+                <label
+                       for="commentTextInput"
+                       >
+                    Ваш комментарий:
+                </label>
+                <textarea id="commentTextInput" required></textarea>
+                <button
+                        type="submit"
+                        >
+                        Отправить.
+                </button>
+            </form>
+        </section>
+    </main>
+    <!--FOOTER-->
+</body>
+
+</html>
