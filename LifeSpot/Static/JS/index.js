@@ -1,24 +1,32 @@
-﻿let sessionData = new Map();
+﻿function checkAndWriteSessionStorage(item, returnValToWriteFunc) {
+    const result = sessionStorage.getItem(item)
+    if (result == null) {
+        sessionStorage.setItem(item, returnValToWriteFunc());
+    }
+    return result;
+}
 
-const checkAge = function() {
-    let age = prompt("Пожалуйста, введите ваш возраст ниже:");
-    sessionData.set("UserAge", age);
-    if (age < 18) {
-        alert("Контент сайта не предназначен для лиц младше 18!\nВы будете перенаправлены.");
-        window.location.href = "http://www.google.com";
-    } else {
-        alert(`Приветствуем на LiveSpot!\n Текущее время: ${new Date().toLocaleString()}`);
+const checkAge = function () {
+    if (checkAndWriteSessionStorage("UserAge", () => { return prompt("Пожалуйста, введите ваш возраст ниже:") } ) == null) {
+        if (sessionStorage.getItem("UserAge") < 18) {
+            alert("Контент сайта не предназначен для лиц младше 18!\nВы будете перенаправлены.");
+            window.location.href = "http://www.google.com";
+        } else {
+            alert(`Приветствуем на LiveSpot!\n Текущее время: ${new Date().toLocaleString()}`);
+        }
     }
 }
 function handleSession() {
-    sessionData.set("UserAgent", window.navigator.userAgent);
-    sessionData.set("UserSessionStartTime", new Date().toLocaleString());
+    checkAndWriteSessionStorage("UserAgent", () => { return window.navigator.userAgent });
+    checkAndWriteSessionStorage("UserSessionStartTime", () => { return new Date().toLocaleString() });
+    checkAge();
+    logSession();
 }
 
 const logSession = function () {
-    for (let prop of sessionData) {
-        console.log(prop);
-    }
+    console.log(`Клиент пользователя: ${sessionStorage.getItem('UserAgent')}`);
+    console.log(`Время начала сессии: ${sessionStorage.getItem('UserSessionStartTime')}`);
+    console.log(`Возраст пользователя: ${sessionStorage.getItem('UserAge')}`);
 }
 const getSearchInput = function() {
     return document.getElementById('searchInput').value.toLowerCase();

@@ -1,4 +1,4 @@
-let commentForm = document.getElementById("commentForm");
+﻿let commentForm = document.getElementById("commentForm");
 function submitComment(e) {
     e.preventDefault();
     addComment();
@@ -12,9 +12,13 @@ const showCommentForm = function () {
 }
 
 const writeComment = comment => {
+    let rateParagraph = '';
+    if (comment.hasOwnProperty("rate")) {
+        rateParagraph = `<small> Рейтинг отзыва: ${comment.rate}</small>`;
+    }
     document.getElementById("commentSection").innerHTML +=
         `<div class="comment">\n`
-        + `<p><b>${comment.userName}</b> ${comment.date}</p>`
+        + `<p><b>${comment.userName}</b> ${comment.date + rateParagraph}</p>`
         + `<p> ${comment.commentText}</p>`
         + `</div>`;
 }
@@ -24,7 +28,10 @@ function addComment() {
     comment.userName = document.getElementById("commenterNameInput").value;
     comment.Text = document.getElementById("commentTextInput").value;
     comment.date = new Date().toLocaleString();
-
+    if (confirm("Хотите, чтоб полезность комментария могли оценить другие пользователи?")) {
+        comment = Object.create(comment);
+        comment.rate = 0;
+    }
     writeComment(comment);
 }
 
