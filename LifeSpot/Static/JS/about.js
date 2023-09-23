@@ -23,11 +23,14 @@ const writeComment = comment => {
         + `</div>`;
 }
 
+function Comment() {
+    this.userName = document.getElementById("commenterNameInput").value;
+    this.Text = document.getElementById("commentTextInput").value;
+    this.date = new Date().toLocaleString();
+}
+
 function addComment() {
-    let comment = {}
-    comment.userName = document.getElementById("commenterNameInput").value;
-    comment.Text = document.getElementById("commentTextInput").value;
-    comment.date = new Date().toLocaleString();
+    let comment = new Comment();
     if (confirm("Хотите, чтоб полезность комментария могли оценить другие пользователи?")) {
         comment = Object.create(comment);
         comment.rate = 0;
