@@ -40,8 +40,9 @@ function addComment() {
 
 const AddLike = function (buttonId) {
     let likedButton = document.getElementById(buttonId);
-    const rate = likedButton.innerHTML.split(' ');
-    const updatedHtml = likedButton.innerHTML.replace(rate[1], Number(rate[1]) + 1);
+    // rate is last.
+    const rate = likedButton.innerHTML.split(' ').at(-1);
+    const updatedHtml = likedButton.innerHTML.replace(rate, Number(rate) + 1);
     likedButton.innerHTML = updatedHtml;
 }
 
