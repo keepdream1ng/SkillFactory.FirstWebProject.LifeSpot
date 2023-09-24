@@ -12,13 +12,13 @@ const showCommentForm = function () {
 }
 
 const writeComment = comment => {
-    let rateParagraph = '';
+    let likeCount = '';
     if (comment.hasOwnProperty("rate")) {
-        rateParagraph = `<small> Рейтинг отзыва: ${comment.rate}</small>`;
+        likeCount = ` <button id="${Math.random()}" class="likeButton" onclick="AddLike(this.id)"> ❤️${comment.rate}</button>`;
     }
     document.getElementById("commentSection").innerHTML +=
         `<div class="comment">\n`
-        + `<p><b>${comment.userName}</b> ${comment.date + rateParagraph}</p>`
+        + `<p><b>${comment.userName}</b> ${comment.date + likeCount}</p>`
         + `<p> ${comment.commentText}</p>`
         + `</div>`;
 }
@@ -36,5 +36,11 @@ function addComment() {
         comment.rate = 0;
     }
     writeComment(comment);
+}
+
+const AddLike = function (buttonId) {
+    let likedButton = document.getElementById(buttonId);
+    let rate = likedButton.innerHTML.match(/(\d+)/)[0];
+    likedButton.innerHTML.replace(rate, ++rate);
 }
 
