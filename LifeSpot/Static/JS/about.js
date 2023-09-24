@@ -14,12 +14,12 @@ const showCommentForm = function () {
 const writeComment = comment => {
     let likeCount = '';
     if (comment.hasOwnProperty("rate")) {
-        likeCount = ` <button id="${Math.random()}" class="likeButton" onclick="AddLike(this.id)"> ❤️${comment.rate}</button>`;
+        likeCount = ` <button id="${Math.random()}" class="likeButton" onclick="AddLike(this.id)">❤️ ${comment.rate}</button>`;
     }
     document.getElementById("commentSection").innerHTML +=
         `<div class="comment">\n`
         + `<p><b>${comment.userName}</b> ${comment.date + likeCount}</p>`
-        + `<p> ${comment.commentText}</p>`
+        + `<p> ${comment.Text}</p>`
         + `</div>`;
 }
 
@@ -40,7 +40,8 @@ function addComment() {
 
 const AddLike = function (buttonId) {
     let likedButton = document.getElementById(buttonId);
-    let rate = likedButton.innerHTML.match(/(\d+)/)[0];
-    likedButton.innerHTML.replace(rate, ++rate);
+    const rate = likedButton.innerHTML.split(' ');
+    const updatedHtml = likedButton.innerHTML.replace(rate[1], Number(rate[1]) + 1);
+    likedButton.innerHTML = updatedHtml;
 }
 
