@@ -75,7 +75,7 @@ namespace LifeSpot
                     &&
                     (replaceArgs.ReplacemantPairs.Count > 0))
                 {
-                    foreach (var item  in replaceArgs.ReplacemantPairs)
+                    foreach (var item in replaceArgs.ReplacemantPairs)
                     {
                         html.Replace(item.Key, item.Value);
                     }
@@ -84,6 +84,22 @@ namespace LifeSpot
                 await context.Response.WriteAsync(html.ToString());
             });
 
+        }
+
+        public static void MapImages(this IEndpointRouteBuilder builder)
+        {
+            // Map a custom route to serve the image using MapGet.
+            builder.MapGet("/img/{imageName}", async context =>
+            {
+                // Get the imageName from the route values.
+                var imageName = context.Request.RouteValues["imageName"] as string;
+
+                // Construct the path to the image on your server.
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "Img", imageName);
+
+                // Serve the image file as-is.
+                await context.Response.SendFileAsync(imagePath);
+            });
         }
     }
 }
