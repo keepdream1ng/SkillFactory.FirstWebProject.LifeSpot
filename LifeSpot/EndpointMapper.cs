@@ -56,6 +56,7 @@ namespace LifeSpot
             HtmlReplaceArgs replaceElements = new();
             replaceElements.AddSharedElement("<!--SIDEBAR-->", "sidebar.html");
             replaceElements.AddSharedElement("<!--FOOTER-->", "footer.html");
+            replaceElements.AddSharedElement("<!--SLIDER-->", "slider.html");
 
             builder.MapGetView("/", "index.html", replaceElements);
             builder.MapGetView("/testing", "testing.html", replaceElements);
