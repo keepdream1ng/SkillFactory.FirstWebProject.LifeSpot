@@ -13,9 +13,11 @@
 body {
     font-family: "Helvetica 65 Medium", sans-serif;
     padding-left: var(--sidebar-width);
+    position: relative;
+    padding-bottom: 4rem;
     background-color: hsl(200, 30%, 80%);
     font-size: 1.1rem;
-    min-height: 100%
+    min-height: 100vh;
 }
 
 button, input, textarea, select{
@@ -75,7 +77,7 @@ input.search:focus {
 
 footer {
     position: absolute;
-    margin-top: 2rem;
+    left: var(--sidebar-width);
     bottom: 0;
     font-size: medium;
     color: dimgrey;
@@ -118,17 +120,26 @@ section{
     visibility:visible;
 }
 
+.slider-wrapper{
+    display: flex;
+    align-items: center;
+}
+
 ul.slider{
     list-style-type:none;
 }
 
 .slider{
+    margin: 0 -2rem;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
     gap: 0;
+    /* change to hidden later*/
     overflow-x: scroll;
     scroll-snap-type:x mandatory;
+    touch-action: none;
+    cursor: pointer;
 }
 
 .slider>*{
@@ -137,4 +148,21 @@ ul.slider{
 
 .slider *{
     width: 100%;
+}
+
+.slider-nav{
+    z-index: 1;
+    color: hsla(0, 10%, 80%, 90%);
+    background-color: hsla(0, 10%, 60%, 60%);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2rem;
+    min-width: 2rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: default;
+}
+
+.slider-nav:hover {
+    background-color: hsla(0, 10%, 60%, 40%);
 }
