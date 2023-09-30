@@ -8,6 +8,7 @@ const dragStart = (e) => {
     allowDrag = true;
     prevPageX = e.pageX;
     prevScrollLeft = slider.scrollLeft;
+    slider.addEventListener("mousemove", dragging);
 }
 
 const dragging = (e) => {
@@ -18,9 +19,9 @@ const dragging = (e) => {
 
 const dragStop = () => {
     allowDrag = false;
+    slider.removeEventListener("mousemove", dragging);
 }
 
 slider.addEventListener("mousedown", dragStart);
 slider.addEventListener("mouseup", dragStop);
-slider.addEventListener("mousemove", dragging);
 slider.addEventListener("mouseleave", dragStop);
