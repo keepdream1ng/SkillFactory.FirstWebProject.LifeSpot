@@ -1,4 +1,15 @@
 ﻿const slider = document.querySelector(".slider");
+const sliderNavs = document.querySelectorAll(".slider-nav");
+
+sliderNavs.forEach(navButton => {
+    navButton.addEventListener("click", () => {
+        if (navButton.id == "slide-prev") {
+            slider.scrollLeft -= slider.clientWidth;
+        } else {
+            slider.scrollLeft += slider.clientWidth;
+        }
+    });
+});
 
 let prevPageX, prevScrollLeft;
 
