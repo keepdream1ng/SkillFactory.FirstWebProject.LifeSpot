@@ -34,7 +34,8 @@ namespace LifeSpot
             var jsFiles = new[] {
                 "index.js",
                 "testing.js",
-                "about.js"
+                "about.js",
+                "slider.js"
             };
 
             foreach (var fileName in jsFiles)

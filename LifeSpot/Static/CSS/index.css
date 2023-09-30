@@ -138,7 +138,8 @@ ul.slider{
     /* change to hidden later*/
     overflow-x: scroll;
     scroll-snap-type:x mandatory;
-    touch-action: none;
+    scroll-behavior: smooth;
+    /*touch-action: none;*/
     cursor: pointer;
 }
 
