@@ -117,3 +117,24 @@ section{
 #commentForm #newCommentButton{
     visibility:visible;
 }
+
+ul.slider{
+    list-style-type:none;
+}
+
+.slider{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    gap: 0;
+    overflow-x: scroll;
+    scroll-snap-type:x mandatory;
+}
+
+.slider>*{
+    scroll-snap-align: start;
+}
+
+.slider *{
+    width: 100%;
+}
