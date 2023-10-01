@@ -135,11 +135,9 @@ ul.slider{
     grid-auto-flow: column;
     grid-auto-columns: 100%;
     gap: 0;
-    /* change to hidden later*/
     overflow-x: scroll;
     scroll-snap-type:x mandatory;
     scroll-behavior: smooth;
-    /*touch-action: none;*/
     cursor: pointer;
 }
 

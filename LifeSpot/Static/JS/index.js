@@ -7,15 +7,26 @@
 }
 
 const checkAge = function () {
-    if (checkAndWriteSessionStorage("UserAge", () => { return prompt("Пожалуйста, введите ваш возраст ниже:") } ) == null) {
-        if (sessionStorage.getItem("UserAge") < 18) {
-            alert("Контент сайта не предназначен для лиц младше 18!\nВы будете перенаправлены.");
-            window.location.href = "http://www.google.com";
-        } else {
+    if (sessionStorage.getItem("UserAge") == null) {
+        let age = prompt("Пожалуйста, введите ваш возраст ниже:")
+        if (age == null) {
+            redirectToGoogle();
+            return;
+        }
+        sessionStorage.setItem("UserAge", age);
+        if (age >= 18) {
             alert(`Приветствуем на LiveSpot!\n Текущее время: ${new Date().toLocaleString()}`);
+        } else {
+            redirectToGoogle();
         }
     }
 }
+
+function redirectToGoogle() {
+    alert("Контент сайта не предназначен для лиц младше 18!\nВы будете перенаправлены.");
+    window.location.href = "http://www.google.com";
+}
+
 function handleSession() {
     checkAndWriteSessionStorage("UserAgent", () => { return window.navigator.userAgent });
     checkAndWriteSessionStorage("UserSessionStartTime", () => { return new Date().toLocaleString() });
@@ -28,7 +39,7 @@ const logSession = function () {
     console.log(`Время начала сессии: ${sessionStorage.getItem('UserSessionStartTime')}`);
     console.log(`Возраст пользователя: ${sessionStorage.getItem('UserAge')}`);
 }
-const getSearchInput = function() {
+const getSearchInput = function () {
     return document.getElementById('searchInput').value.toLowerCase();
 }
 
@@ -46,6 +57,6 @@ function filterVideoContainers() {
     }
 }
 
-const delayedCallToSubscribe = function (){
-    setTimeout( function () { alert("Ищите нас на не заблокированных в РФ ресурсах!")}, 60000)
+const delayedCallToSubscribe = function () {
+    setTimeout(function () { alert("Ищите нас на не заблокированных в РФ ресурсах!") }, 60000)
 }
